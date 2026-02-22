@@ -1,11 +1,13 @@
 package br.com.dio.model;
 
+import br.com.dio.model.enums.GameStatusEnum;
+
 import java.util.Collection;
 import java.util.List;
 
-import static br.com.dio.model.GameStatusEnum.COMPLETE;
-import static br.com.dio.model.GameStatusEnum.INCOMPLETE;
-import static br.com.dio.model.GameStatusEnum.NON_STARTED;
+import static br.com.dio.model.enums.GameStatusEnum.COMPLETE;
+import static br.com.dio.model.enums.GameStatusEnum.INCOMPLETE;
+import static br.com.dio.model.enums.GameStatusEnum.NON_STARTED;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
