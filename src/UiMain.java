@@ -1,20 +1,18 @@
-import br.com.dio.ui.custom.frame.MainFrame;
-import br.com.dio.ui.custom.panel.MainPanel;
+import br.com.dio.ui.custom.screen.MainScreen;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Dimension;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toMap;
 
 
 public class UiMain {
 
     public static void main(String[] args) {
 
-        Dimension dimension = new Dimension(600, 600);
-        JPanel mainPanel = new MainPanel(dimension);
-        JFrame mainFrame = new MainFrame(dimension,mainPanel);
+        final var gameConfig = Stream.of(args)
+                .collect(toMap(x -> x.split(";")[0], x -> x.split(";")[1]));
 
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        MainScreen  mainScreen = new MainScreen(gameConfig);
+        mainScreen.buildMainScreen();
     }
 }
