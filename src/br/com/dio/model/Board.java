@@ -42,14 +42,14 @@ public class Board {
     }
 
     public boolean gameIsFinished() {
-        return hasErros() && getStatus() == COMPLETE;
+        return !hasErros() && getStatus() == COMPLETE;
     }
 
     public boolean hasErros(){
         if(getStatus() == NON_STARTED)return false;
 
         return spaces.stream().flatMap(Collection::stream)
-                .anyMatch(x -> nonNull(x.getActual()) && x.getActual().equals(x.getActual()));
+                .anyMatch(x -> nonNull(x.getActual()) && !x.getActual().equals(x.getExpected()));
     }
 
     public List<List<Space>> getSpaces() {
